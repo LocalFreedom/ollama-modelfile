@@ -1,0 +1,32 @@
+FROM
+
+TEMPLATE """
+{{- /* Code completion */ -}}
+{{- if .Suffix }}<fim_prefix> {{ .Prompt }}<fim_suffix> {{ .Suffix }}<fim_middle>
+
+{{- /* Chat */ -}}
+{{- else if .Messages }}
+{{- range $i, $_ := .Messages }}
+{{- $last := eq (len (slice $.Messages $i)) 1 -}}
+<|im_start|>{{ .Role }}
+{{ .Content }}{{ if (or (ne .Role "assistant") (not $last)) }}<|im_end|>
+{{ end }}
+{{- if (and $last (ne .Role "assistant")) }}<|im_start|>assistant
+{{ end }}
+{{- end }}
+{{- else }}
+
+{{- /* Compatibility */ -}}
+{{- if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+{{ end }}{{ .Response }}{{ if .Response }}<|im_end|>{{ end }}
+"""
+
+PARAMETER stop <|endoftext|>
+PARAMETER stop <|im_end|>
+PARAMETER stop <fim_prefix>
+PARAMETER stop <fim_suffix>
+PARAMETER stop <fim_middle>

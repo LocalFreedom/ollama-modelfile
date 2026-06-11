@@ -1,0 +1,15 @@
+FROM path/to/Marco-o1-Q5_K_M.gguf
+
+TEMPLATE "
+{{- range $i, $_ := .Messages }}
+{{- $last := eq (len (slice $.Messages $i)) 1 -}}
+<|im_start|>{{ .Role }}
+{{ .Content }}{{ if not $last }}<|im_end|>
+{{ end }}
+{{- if and (ne .Role "assistant") $last }}<|im_start|>assistant
+{{ end }}
+{{- end }}
+"
+
+PARAMETER stop <|im_start|>
+PARAMETER stop <|im_end|>
