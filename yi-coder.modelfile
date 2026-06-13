@@ -1,6 +1,6 @@
-FROM
+FROM path/to/model.gguf
 
-TEMPLATE """
+TEMPLATE "
 {{- /* Code completion */ -}}
 {{- if .Suffix }}<fim_prefix> {{ .Prompt }}<fim_suffix> {{ .Suffix }}<fim_middle>
 
@@ -23,7 +23,7 @@ TEMPLATE """
 {{ .Prompt }}<|im_end|>
 {{ end }}<|im_start|>assistant
 {{ end }}{{ .Response }}{{ if .Response }}<|im_end|>{{ end }}
-"""
+"
 
 PARAMETER stop <|endoftext|>
 PARAMETER stop <|im_end|>

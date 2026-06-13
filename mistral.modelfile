@@ -1,4 +1,4 @@
-FROM
+FROM path/to/model.gguf
 
 TEMPLATE "{{- if .Messages }}
 {{- range $index, $_ := .Messages }}

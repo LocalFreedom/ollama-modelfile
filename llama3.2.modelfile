@@ -45,6 +45,7 @@ Respond in the format {"name": function name, "parameters": dictionary of argume
 {{- end }}
 {{- end }}
 "
+
 PARAMETER stop <|start_header_id|>
 PARAMETER stop <|end_header_id|>
 PARAMETER stop <|eot_id|>

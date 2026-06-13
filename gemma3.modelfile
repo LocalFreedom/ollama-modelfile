@@ -1,5 +1,5 @@
 FROM path/to/gemma-3-12b-it-q4_0.gguf
-FROM path/to/mmproj-google_gemma-3-12b-it-qat-f16.gguf
+FROM path/to/mmproj-gemma-3-12b-it-qat-f16.gguf
 
 TEMPLATE "{{- range $i, $_ := .Messages }}
 {{- $last := eq (len (slice $.Messages $i)) 1 }}

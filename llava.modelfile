@@ -1,9 +1,9 @@
 FROM path/to/llava-v1.5-7b-Q4_K_M.gguf
 FROM path/to/llava-v1.5-7b-mmproj-model-f16.gguf
 
-TEMPLATE """
+TEMPLATE "
 [INST] {{ if .System }}{{ .System }} {{ end }}{{ .Prompt }} [/INST]
-"""
+"
 
 PARAMETER stop "[INST]"
 PARAMETER stop "[/INST]"

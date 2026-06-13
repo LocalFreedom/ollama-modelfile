@@ -1,4 +1,4 @@
-FROM
+FROM path/to/model.gguf
 
 PARAMETER repeat_penalty 1.05
 PARAMETER stop <|im_start|>

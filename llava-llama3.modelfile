@@ -1,7 +1,7 @@
 FROM path/to/llava-llama-3-8b-v1_1-int4.gguf
 FROM path/to/llava-llama-3-8b-v1_1-mmproj-f16.gguf
 
-TEMPLATE """
+TEMPLATE "
 {{ if .System }}<|start_header_id|>system<|end_header_id|>
 
 {{ .System }}<|eot_id|>{{ end }}{{ if .Prompt }}<|start_header_id|>user<|end_header_id|>
@@ -9,7 +9,7 @@ TEMPLATE """
 {{ .Prompt }}<|eot_id|>{{ end }}<|start_header_id|>assistant<|end_header_id|>
 
 {{ .Response }}<|eot_id|>
-"""
+"
 
 PARAMETER num_ctx 4096
 PARAMETER num_keep 4

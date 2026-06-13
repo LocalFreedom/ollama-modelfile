@@ -1,4 +1,5 @@
-FROM
+FROM path/to/model.gguf
+FROM path/to/mmproj.gguf
 
 TEMPLATE "
 {{- range $index, $_ := .Messages }}<|start_header_id|>{{ .Role }}<|end_header_id|>
@@ -10,5 +11,6 @@ TEMPLATE "
 {{ end }}
 {{- end }}
 "
+
 PARAMETER temperature 0.6
 PARAMETER top_p 0.9

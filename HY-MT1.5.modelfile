@@ -1,4 +1,4 @@
-FROM
+FROM path/to/gguf
 
 TEMPLATE "
 <｜hy_begin▁of▁sentence｜>{{ if .System }}{{ .System }}<｜hy_place▁holder▁no▁3｜>{{ end }}{{ if .Prompt }}<｜hy_User｜>{{ .Prompt }}{{ end }}<｜hy_Assistant｜>

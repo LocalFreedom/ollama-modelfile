@@ -1,4 +1,4 @@
-FROM ./embeddinggemma-300m-qat-Q8_0.gguf
+FROM path/to/embeddinggemma-300m-qat-Q8_0.gguf
 
 PARAMETER num_batch 2048
 PARAMETER num_ctx 2048

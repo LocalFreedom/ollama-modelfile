@@ -1,4 +1,4 @@
-FROM path/to/Marco-o1-Q5_K_M.gguf
+FROM path/to/Marco-o1-Q4_K_M.gguf
 
 TEMPLATE "
 {{- range $i, $_ := .Messages }}

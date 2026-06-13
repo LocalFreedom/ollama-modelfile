@@ -1,13 +1,13 @@
-FROM
+FROM path/to/model.gguf
 
-TEMPLATE """
+TEMPLATE "
 {{ if .System }}<|system|>
 {{ .System }}<|end|>
 {{ end }}{{ if .Prompt }}<|user|>
 {{ .Prompt }}<|end|>
 {{ end }}<|assistant|>
 {{ .Response }}<|end|>
-"""
+"
 
 PARAMETER stop <|system|>
 PARAMETER stop <|user|>
